@@ -1,0 +1,176 @@
+@import "tailwindcss";
+
+@theme {
+  --font-arabic: "Amiri", serif;
+  --font-serif: "Cormorant Garamond", serif;
+  --font-display: "Cinzel", serif;
+  --font-script: "Great Vibes", cursive;
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+
+  --color-ink: #1a1410;
+  --color-forest-950: #071912;
+  --color-forest-900: #0c2e24;
+  --color-forest-800: #123d32;
+  --color-forest-700: #1a4d40;
+  --color-gold-100: #f6edd4;
+  --color-gold-200: #e8d5a3;
+  --color-gold-300: #d4b56a;
+  --color-gold-400: #c5a35a;
+  --color-gold-500: #b08d3e;
+  --color-ivory: #fbf6ea;
+  --color-ivory-100: #f4ead6;
+  --color-rose-800: #6b2d3c;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: #fbf6ea;
+  color: #1a1410;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: #d4b56a;
+  color: #071912;
+}
+
+.font-arabic {
+  font-family: var(--font-arabic);
+}
+.font-serif {
+  font-family: var(--font-serif);
+}
+.font-display {
+  font-family: var(--font-display);
+}
+.font-script {
+  font-family: var(--font-script);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #fbf6ea;
+}
+::-webkit-scrollbar-thumb {
+  background: #c5a35a;
+  border-radius: 99px;
+}
+
+/* Pattern overlay */
+.pattern-gold {
+  background-image: url("/images/pattern.jpg");
+  background-size: 420px;
+}
+
+/* Glass */
+.glass-dark {
+  background: rgba(7, 25, 18, 0.45);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(232, 213, 163, 0.18);
+}
+.glass-ivory {
+  background: rgba(251, 246, 234, 0.78);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(192, 163, 90, 0.28);
+}
+
+/* Gold hairline */
+.gold-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #c5a35a, transparent);
+}
+
+/* Shimmer gold text */
+.text-gold-shine {
+  background: linear-gradient(90deg, #8c6d2a 0%, #e8d5a3 35%, #c5a35a 50%, #e8d5a3 65%, #8c6d2a 100%);
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shine 7s linear infinite;
+}
+
+@keyframes shine {
+  0% { background-position: 0% center; }
+  100% { background-position: 220% center; }
+}
+
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+@keyframes float-x {
+  0%, 100% { transform: translateX(0) rotate(0deg); }
+  50% { transform: translateX(10px) rotate(8deg); }
+}
+@keyframes pulse-soft {
+  0%, 100% { opacity: 0.35; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.08); }
+}
+@keyframes petal-fall {
+  0% { transform: translateY(-10vh) translateX(0) rotate(0deg); opacity: 0; }
+  12% { opacity: 0.7; }
+  100% { transform: translateY(110vh) translateX(40px) rotate(360deg); opacity: 0; }
+}
+@keyframes draw-in {
+  from { stroke-dashoffset: 240; opacity: 0; }
+  to { stroke-dashoffset: 0; opacity: 1; }
+}
+@keyframes seal-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(197, 163, 90, 0.45); }
+  50% { box-shadow: 0 0 0 16px rgba(197, 163, 90, 0); }
+}
+
+.animate-float-y { animation: float-y 7s ease-in-out infinite; }
+.animate-float-x { animation: float-x 9s ease-in-out infinite; }
+.animate-pulse-soft { animation: pulse-soft 5.5s ease-in-out infinite; }
+.animate-seal { animation: seal-pulse 2.6s ease-out infinite; }
+
+.petal {
+  animation: petal-fall linear infinite;
+}
+
+/* Mosque arch clip */
+.arch-mask {
+  clip-path: polygon(
+    0% 100%,
+    0% 38%,
+    2% 32%,
+    8% 22%,
+    18% 12%,
+    32% 5%,
+    50% 0%,
+    68% 5%,
+    82% 12%,
+    92% 22%,
+    98% 32%,
+    100% 38%,
+    100% 100%
+  );
+}
+
+/* Safe area for iOS dock */
+.pb-safe {
+  padding-bottom: calc(5.5rem + env(safe-area-inset-bottom));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .animate-float-y,
+  .animate-float-x,
+  .animate-pulse-soft,
+  .animate-seal,
+  .text-gold-shine,
+  .petal {
+    animation: none !important;
+  }
+}
