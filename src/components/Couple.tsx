@@ -64,9 +64,6 @@ export default function Couple() {
                 {BRIDE.name}
               </h3>
               <p className="mt-2 text-sm text-[#e8d5a3]">{BRIDE.title}</p>
-              <p className="mt-1 text-xs uppercase tracking-[0.18em] text-white/40">
-                Our beloved daughter
-              </p>
               <div className="gold-line mx-auto my-6 w-24" />
               <p className="font-serif text-sm leading-relaxed text-white/65">
                 {BRIDE.father}
