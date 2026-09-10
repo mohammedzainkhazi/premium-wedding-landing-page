@@ -135,14 +135,14 @@ export default function Events() {
             <EventCard
               event={NIKAH}
               accent="#6b2d3c"
-              image="https://images.pexels.com/photos/1821687/pexels-photo-1821687.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=700&w=1200"
+              image="https://images.pexels.com/photos/32854438/pexels-photo-32854438.jpeg"
             />
           </Reveal>
           <Reveal delay={0.12}>
             <EventCard
               event={Valima}
               accent="#1a4d40"
-              image="https://images.pexels.com/photos/8818657/pexels-photo-8818657.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=700&w=1200"
+              image="https://images.pexels.com/photos/37828110/pexels-photo-37828110.jpeg"
             />
           </Reveal>
         </div>
